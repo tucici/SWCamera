@@ -212,6 +212,7 @@
                 switch (state) {
                     case SWMediaBtnStateNormal:
                         [self endAnimations];
+                        self.clickedBlock(self.type,state);
                         break;
                     case SWMediaBtnStateSelected:
                         /*切换到视频通话，已经在通话中的状态，实现通话内容的代理*/

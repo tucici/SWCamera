@@ -25,7 +25,7 @@
     /*初始化UI界面*/
     mainV = [[SWMediaInteractionView alloc]initWithFrame:self.view.frame];
     mainV.delegate = self;
-   [self.view addSubview:mainV];
+    [self.view addSubview:mainV];
     
     /*    模拟脸谱列表取消按钮*/
     UIButton *Btn = [[UIButton alloc]initWithFrame:CGRectMake(0.0, 0.0, 100, 100)];
@@ -41,9 +41,9 @@
     
     sender.selected =!sender.selected;
     NSLog(@"sender.selected  :%d",sender.selected);
-//    [mainV SWMediaBtnHidden:sender.selected];
+    //    [mainV SWMediaBtnHidden:sender.selected];
     [mainV SWMediaSegHidden:sender.selected andUserInteraction:!sender.selected];
-   
+    
 }
 /**
  *ViewController开始倒计时5秒钟,5秒后，在此方法里就可以实现Vedio的Select;
@@ -107,7 +107,7 @@
  *第二个小按钮
  */
 -(void)actionForSecondCustorm2WithType:(SWMediaBtnType)type andState:(SWMediaBtnState)state{
-     
+    
 }
 /**
  *第三个小按钮

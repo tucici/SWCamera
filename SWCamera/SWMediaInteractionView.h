@@ -87,4 +87,5 @@
  *如果BOOL值为YES,则通知被接收方主按钮交互打开，如果BOOL为NO，则通知被接收方，主按钮交互关闭
  */
 -(void)whenVchatingSWMediaBtnType:(SWMediaBtnType)type andState:(SWMediaBtnState)state andItercation:(BOOL)intercation;
+
 @end

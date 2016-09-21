@@ -85,11 +85,11 @@
     if (deltaX > MINDISTANCE)
         
     {
-         NSLog(@">>>>>>>>>>>>>>>向左滑动%d<<<<<<<<<<<<<<<<<<<<<<<",SegUserIntercation);
+        NSLog(@">>>>>>>>>>>>>>>向左滑动%d<<<<<<<<<<<<<<<<<<<<<<<",SegUserIntercation);
         if (SegUserIntercation) {
-              _Seg.type = (_Seg.type == SWCameraTypeGif)?SWCameraTypeCamera:(_Seg.type - 1);
+            _Seg.type = (_Seg.type == SWCameraTypeGif)?SWCameraTypeCamera:(_Seg.type - 1);
         }
-      
+        
         
     }
     
@@ -97,7 +97,7 @@
     else if (deltaX < -MINDISTANCE)
         
     {
-         NSLog(@">>>>>>>>>>>>>>>向右滑动%d<<<<<<<<<<<<<<<<<<<<<<<",SegUserIntercation);
+        NSLog(@">>>>>>>>>>>>>>>向右滑动%d<<<<<<<<<<<<<<<<<<<<<<<",SegUserIntercation);
         if (SegUserIntercation) {
             _Seg.type = (_Seg.type == SWCameraTypeCamera)?SWCameraTypeGif:(_Seg.type + 1);
         }
@@ -160,8 +160,8 @@
     [self addSubview:self.CusBtn4];
     
     
-    
 }
+
 /**
  *第一个小按钮
  */
@@ -178,6 +178,7 @@
  *第二个小按钮
  */
 -(void)CusBtn2:(UIButton *)sender{
+    
     SWMediaBtn *button = [self viewWithTag:100];
     [self.delegate actionForSecondCustorm2WithType:button.type andState:button.state];
 }
@@ -212,35 +213,35 @@
     NSLog(@">>>>>>>>>>>>>>>%d<<<<<<<<<<<<<<<<<<<<<<<",isUserInteraction);
     SegUserIntercation = isUserInteraction;
     _Seg.userInteractionEnabled = isUserInteraction;
-
+    
 }
 /*第一个小按钮CustormButton的作用为添加滤镜和脸谱时，如果isHidden为YES ,则隐藏主按钮，如果isHidden为NO,则显示主按钮*/
 -(void)SWMediaBtnHidden:(BOOL)isHidden{
-   SWMediaBtn *button = [self viewWithTag:100];
-button.hidden = isHidden;
+    SWMediaBtn *button = [self viewWithTag:100];
+    button.hidden = isHidden;
 }
-/*录制Vedio倒计时5秒 改变主按钮state  /  通话接通  改变主按钮state*/
+/*录制Vedio5秒倒计时完成 改变主按钮state  /  通话接通  改变主按钮state   */
 -(void)VedioOrVchatUserInteraction:(BOOL)isVchating{
     SWMediaBtn *button = [self viewWithTag:100];
     dispatch_async(dispatch_get_main_queue(), ^{
         
-                    button.userInteractionEnabled = !isVchating;
+        button.userInteractionEnabled = !isVchating;
         
-                    if (button.type == SWMediaBtnTypeVideo) {
-                        button.state = SWMediaBtnStateSelected;
-                    }
-                    else if (button.type == SWMediaBtnTypeVchat){
-                        if (isVchating) {
-                            button.state = SWMediaBtnStateSelected;
-                        }
-                        else if (!isVchating){
-                            button.state = SWMediaBtnStateNormal;
-                            _Seg.userInteractionEnabled =!isVchating;
-                        }
-                    }
-                    
-                });
-
+        if (button.type == SWMediaBtnTypeVideo) {
+            button.state = SWMediaBtnStateSelected;
+        }
+        else if (button.type == SWMediaBtnTypeVchat){
+            if (isVchating) {
+                button.state = SWMediaBtnStateSelected;
+            }
+            else if (!isVchating){
+                button.state = SWMediaBtnStateNormal;
+                _Seg.userInteractionEnabled =!isVchating;
+            }
+        }
+        
+    });
+    
 }
 /*
  *Vchat接通，被接收方回调，主按钮Type自动改变为type ，主按钮state自动改变为state
@@ -248,8 +249,17 @@ button.hidden = isHidden;
  */
 -(void)whenVchatingSWMediaBtnType:(SWMediaBtnType)type andState:(SWMediaBtnState)state andItercation:(BOOL)intercation{
     SWMediaBtn *button = [self viewWithTag:100];
+    SWMediaSeg *seg = [self viewWithTag:120];
     button.userInteractionEnabled = intercation;
     if (type == SWMediaBtnTypeVchat) {
+        if (state == 0) {
+            seg.userInteractionEnabled = YES;
+            button.userInteractionEnabled = YES;
+            self.CusBtn2.hidden = YES;
+            self.CusBtn3.hidden = YES;
+            self.CusBtn4.hidden = YES;
+        }
+        
         button.type = type;
         button.state = state;
     }
@@ -261,6 +271,7 @@ button.hidden = isHidden;
     [self.delegate finishedActionWithType:type andState:state isFirst:isFirst];
 }
 -(void)startVideoOrVchatActionWithType:(SWMediaBtnType)type andState:(SWMediaBtnState)state{
+    
     [self.delegate startVideoOrVchatIntercactionWithType:type andState:state];
     
 }
@@ -417,7 +428,7 @@ button.hidden = isHidden;
         }
         
     }];
-
+    
 }
 /*
  // Only override drawRect: if you perform custom drawing.

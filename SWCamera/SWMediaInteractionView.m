@@ -119,18 +119,30 @@
 
 - (void)swipeLeftAction{
     SWMediaBtn *button  =  (SWMediaBtn *)[self viewWithTag:100];
-    
+#pragma  mark 主按钮只能在normal状态下滑动
     if (button.state == SWMediaBtnStateNormal) {
+#pragma  mark end
         _Seg.type = (_Seg.type == SWCameraTypeGif)?SWCameraTypeCamera:(_Seg.type - 1);
     }
-    
+#pragma mark 滑动手势，主按钮动画效果由隐藏复位到原位
+    if (isDropDown) {
+        [self performSelectorOnMainThread:@selector(tap:) withObject:nil waitUntilDone:NO];
+    }
+#pragma mark end
 }
 
 - (void)swipeRightAction{
     SWMediaBtn *button  =  (SWMediaBtn *)[self viewWithTag:100];
+#pragma  mark 主按钮只能在normal状态下滑动
     if (button.state == SWMediaBtnStateNormal) {
+#pragma  mark end
         _Seg.type = (_Seg.type == SWCameraTypeCamera)?SWCameraTypeGif:(_Seg.type + 1);
     }
+#pragma mark 滑动手势，主按钮动画效果由隐藏复位到原位
+    if (isDropDown) {
+        [self performSelectorOnMainThread:@selector(tap:) withObject:nil waitUntilDone:NO];
+    }
+#pragma mark end
 }
 
 -(void)initializeTap{

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B2D502C1D93AE250071A0B7 /* SWTimeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2D502B1D93AE250071A0B7 /* SWTimeLabel.m */; };
 		2B95CD531D82563C00D4F9B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B95CD521D82563C00D4F9B0 /* main.m */; };
 		2B95CD611D82563C00D4F9B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B95CD601D82563C00D4F9B0 /* Assets.xcassets */; };
 		2B95CD641D82563C00D4F9B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B95CD621D82563C00D4F9B0 /* LaunchScreen.storyboard */; };
 		2B95CD6F1D82563C00D4F9B0 /* SWCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B95CD6E1D82563C00D4F9B0 /* SWCameraTests.m */; };
 		2B95CD7A1D82563C00D4F9B0 /* SWCameraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B95CD791D82563C00D4F9B0 /* SWCameraUITests.m */; };
 		2B95CD951D82567200D4F9B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B95CD881D82567200D4F9B0 /* ViewController.m */; };
-		2B95CD961D82567200D4F9B0 /* SWVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B95CD8A1D82567200D4F9B0 /* SWVideo.m */; };
 		2B95CD971D82567200D4F9B0 /* PlayAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B95CD8C1D82567200D4F9B0 /* PlayAudio.m */; };
 		2B95CD981D82567200D4F9B0 /* SWMediaSeg.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B95CD8E1D82567200D4F9B0 /* SWMediaSeg.m */; };
 		2B95CD991D82567200D4F9B0 /* SWMediaBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B95CD901D82567200D4F9B0 /* SWMediaBtn.m */; };
@@ -40,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B2D502A1D93AE250071A0B7 /* SWTimeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTimeLabel.h; sourceTree = "<group>"; };
+		2B2D502B1D93AE250071A0B7 /* SWTimeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTimeLabel.m; sourceTree = "<group>"; };
 		2B95CD4E1D82563C00D4F9B0 /* SWCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B95CD521D82563C00D4F9B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B95CD601D82563C00D4F9B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,8 +55,6 @@
 		2B95CD7B1D82563C00D4F9B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B95CD871D82567200D4F9B0 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2B95CD881D82567200D4F9B0 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2B95CD891D82567200D4F9B0 /* SWVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWVideo.h; sourceTree = "<group>"; };
-		2B95CD8A1D82567200D4F9B0 /* SWVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWVideo.m; sourceTree = "<group>"; };
 		2B95CD8B1D82567200D4F9B0 /* PlayAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayAudio.h; sourceTree = "<group>"; };
 		2B95CD8C1D82567200D4F9B0 /* PlayAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayAudio.m; sourceTree = "<group>"; };
 		2B95CD8D1D82567200D4F9B0 /* SWMediaSeg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWMediaSeg.h; sourceTree = "<group>"; };
@@ -123,8 +123,6 @@
 				2B95CD9F1D82578B00D4F9B0 /* Controller */,
 				2B95CD9C1D82568200D4F9B0 /* AppDelegate.h */,
 				2B95CD9D1D82568200D4F9B0 /* AppDelegate.m */,
-				2B95CD891D82567200D4F9B0 /* SWVideo.h */,
-				2B95CD8A1D82567200D4F9B0 /* SWVideo.m */,
 				2B95CD601D82563C00D4F9B0 /* Assets.xcassets */,
 				2B95CD621D82563C00D4F9B0 /* LaunchScreen.storyboard */,
 				2B95CD651D82563C00D4F9B0 /* Info.plist */,
@@ -177,6 +175,8 @@
 				2B95CD901D82567200D4F9B0 /* SWMediaBtn.m */,
 				2B95CD8D1D82567200D4F9B0 /* SWMediaSeg.h */,
 				2B95CD8E1D82567200D4F9B0 /* SWMediaSeg.m */,
+				2B2D502A1D93AE250071A0B7 /* SWTimeLabel.h */,
+				2B2D502B1D93AE250071A0B7 /* SWTimeLabel.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -261,11 +261,12 @@
 		2B95CD461D82563C00D4F9B0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Deadpool;
 				TargetAttributes = {
 					2B95CD4D1D82563C00D4F9B0 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 3XT5UKAMN4;
 					};
 					2B95CD691D82563C00D4F9B0 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -333,7 +334,7 @@
 				2B95CD9E1D82568200D4F9B0 /* AppDelegate.m in Sources */,
 				2B95CD9A1D82567200D4F9B0 /* SWMediaPro.m in Sources */,
 				2B95CD971D82567200D4F9B0 /* PlayAudio.m in Sources */,
-				2B95CD961D82567200D4F9B0 /* SWVideo.m in Sources */,
+				2B2D502C1D93AE250071A0B7 /* SWTimeLabel.m in Sources */,
 				2B95CD981D82567200D4F9B0 /* SWMediaSeg.m in Sources */,
 				2B95CD531D82563C00D4F9B0 /* main.m in Sources */,
 				2B95CD9B1D82567200D4F9B0 /* SWMediaInteractionView.m in Sources */,
@@ -397,8 +398,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -441,8 +444,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -469,7 +474,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3XT5UKAMN4;
 				INFOPLIST_FILE = SWCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shiwo.com.SWCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -480,7 +487,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3XT5UKAMN4;
 				INFOPLIST_FILE = SWCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shiwo.com.SWCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";

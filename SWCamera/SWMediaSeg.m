@@ -8,8 +8,6 @@
 
 #import "SWMediaSeg.h"
 
-
-
 @interface SWMediaSeg ()
 {
     UILabel *gifLable;
@@ -84,9 +82,10 @@
     picLable.textColor = [UIColor whiteColor];
     [black addSubview:picLable];
     
-    [UIView animateWithDuration:2.0 animations:^{
-        self.alpha = 0.0;
-    }];
+    /*淡显淡隐效果
+     [UIView animateWithDuration:2.0 animations:^{
+     self.alpha = 0.0;
+     }];*/
 }
 
 
@@ -95,7 +94,6 @@
 - (void)setType:(SWCameraType)Type
 {
     self.alpha = 1;
-    [self timeout];
     _type = Type;
     
     self.changeType(self.type);
@@ -119,9 +117,10 @@
     {
         picLable.textColor = [UIColor yellowColor];
     }
-    [UIView animateWithDuration:2.0 animations:^{
-        self.alpha = 0.0;
-    }];
+    /*淡显淡隐效果
+     [UIView animateWithDuration:2.0 animations:^{
+     self.alpha = 0.0;
+     }];*/
     
 }
 -(void)changeCameraCaptureType:(SWCameraType)type{
@@ -143,28 +142,7 @@
     }
     
 }
--(void)timeout;
-{
-//   NSRunLoop *LOOP = [NSRunLoop currentRunLoop];
-//    
-//    NSLog(@"当前loop 😡😡😡😡😡😡😡😡 ：%@",LOOP);
-//    time = 0;
-//    dispatch_queue_t queue= dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//    dispatch_source_t animatime = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
-//    dispatch_source_set_timer(animatime,dispatch_walltime(NULL, 0), 5* NSEC_PER_SEC, 0);
-//    dispatch_source_set_event_handler(animatime, ^{
-//        if (time == 5) {
-//            dispatch_source_cancel(animatime);
-//            NSLog(@"😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊");
-//        }
-//        //            [UIView animateWithDuration:2.0 animations:^{
-//        NSLog(@"gcdloop 😈😈😈😈😈😈😈 ： %@",[NSRunLoop currentRunLoop]);
-////        NSLog(@"self.alpha  %f",self.alpha);self.alpha -=0.05;
-//        
-//    });
-//    time=time+5;
-//    dispatch_resume(animatime);
-}
+
 
 
 @end

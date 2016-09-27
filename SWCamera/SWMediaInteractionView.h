@@ -31,13 +31,13 @@
 -(void)initGif;
 
 /**
- *(拍照 / 视频录制 / 视频通话 / Gif录制)暂停或者完成，
+ *(拍照 / 视频录制 / 视频通话 / Gif录制)或者暂停，
  */
 -(void)finishedActionWithType:(SWMediaBtnType)type andState:(SWMediaBtnState)state isFirst:(BOOL)isFirst;
-/**
- *拍摄视频时，倒计5秒后，调用此API，实现主按钮状态切换到Selected  / 通话视频时，通话线路接通，实现主按钮状态切换到Selected ；
- */
--(void)startVideoOrVchatIntercactionWithType:(SWMediaBtnType)type andState:(SWMediaBtnState)state;
+
+/*点击屏幕，隐藏面具滤镜下拉菜单*/
+-(void)hiddenMaskAndFilterMenu;
+
 @end
 
 
@@ -65,6 +65,7 @@
 
 @end
 @interface SWMediaInteractionView : UIView
+@property (nonatomic, assign) CGFloat  kw_filter;
 @property (nonatomic, strong) UIButton *CusBtn1;
 @property (nonatomic, strong) UIButton *CusBtn2;
 @property (nonatomic, strong) UIButton *CusBtn3;
@@ -72,20 +73,26 @@
 @property (nonatomic ,assign) id<SWMediaInteractionDelegate,SWMediaInteractionSourceDelegate>delegate;
 
 -(id)initWithFrame:(CGRect)frame;
-
-/*特定场景，isHidden为YES ，隐藏分段选择器，若isHidden为NO,则显示分段选择器*/
--(void)SWMediaSegHidden:(BOOL) isHidden andUserInteraction:(BOOL)isUserInteraction;
+/*当点击添加人员，进行通话，在拨通状态，SWMediaBtnType不可选*/
+-(void)invitingVchat:(BOOL)inviting;
 
 /*第一个小按钮CustormButton的作用为添加滤镜和脸谱时，如果isHidden为YES ,则隐藏主按钮，如果isHidden为NO,则显示主按钮*/
 -(void)SWMediaBtnHidden:(BOOL) isHidden;
-/*如果isVchating 为YES，则表示视频通话接通，如果isVchating为NO,则表示视频通话断开*/
--(void)VedioOrVchatUserInteraction:(BOOL)isVchating;
-
 
 /*
- *Vchat接通，被接收方回调，主按钮Type自动改变为type ，主按钮state自动改变为state
- *如果BOOL值为YES,则通知被接收方主按钮交互打开，如果BOOL为NO，则通知被接收方，主按钮交互关闭
+ *SWMediaBtyType为Video
+ isWorking为YES，表示视频倒计时结束，即将录制。isWorking为NO,则表示录制结束*/
+-(void)recordingVedio:(BOOL)isWorking;
+
+/*
+ * SWMediaBtnType为Vchat ，通话接通和挂断时候，调用此方法，分别打开或者关闭邀请方和接收方主按钮SWMediaBtn交互，从而实现通话进行中，点击主按钮录制的事件。
+ *  >邀请方，在通话接通的通知中，调用此方法，传入参数分别为:SWMediaBtnTypeVchat/SWediaBtnStateNormal/YES(NO),
+ *      1. 打开接收方主按钮交互(关闭接收方主按钮交互)；
+ *      2.同时显示四个小按钮(隐藏画面录制/声音录制/挂断等三个小按钮)；
+ *      3.关闭分段选择器交互(打开分段选择器交互)；
+ *  >接收方，同上。
  */
--(void)whenVchatingSWMediaBtnType:(SWMediaBtnType)type andState:(SWMediaBtnState)state andItercation:(BOOL)intercation;
+-(void)recordingVchatWithSWMediaBtnType:(SWMediaBtnType)type andState:(SWMediaBtnState)state andIsVchating:(BOOL)isVchating;
+
 
 @end

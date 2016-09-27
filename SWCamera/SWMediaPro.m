@@ -39,7 +39,7 @@
     CGContextSetLineWidth(context, lineWidth);
     CGContextSetLineCap(context, kCGLineCapRound);
     CGContextSetStrokeColorWithColor(context, [[UIColor whiteColor] CGColor]);
-    CGContextAddArc(context, Point, Point, Point- 2.5, M_PI_2 , M_PI_2 + 2 * M_PI, 0);
+    CGContextAddArc(context, Point, Point, Point - 2.5, M_PI_2 , M_PI_2 + 2 * M_PI, 0);
     CGContextStrokePath(context);
     if (!self.nowArray || self.nowArray.count < 2)
     {
@@ -78,7 +78,7 @@
         CGContextSetStrokeColorWithColor(context, [self.pauseColor CGColor]);
         CGFloat startAngle = M_PI_2 + 2 * M_PI * [self.pauseArray[j] floatValue];
         CGFloat endAngle = M_PI_2 + 2 * M_PI * [self.pauseArray[j] floatValue];
-        CGContextAddArc(context, Point, Point, Point - 2.5, startAngle-0.01, endAngle+0.01, 0);
+        CGContextAddArc(context, Point, Point, Point - 2.5, startAngle - 0.01, endAngle + 0.01, 0);
         CGContextStrokePath(context);
     }
 }

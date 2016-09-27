@@ -36,14 +36,22 @@
     
     
 }
+#pragma mark UIButtonAction
 -(void)clicked:(UIButton *)sender{
     //    sender.selected = YES;
     
     sender.selected =!sender.selected;
     NSLog(@"sender.selected  :%d",sender.selected);
     //    [mainV SWMediaBtnHidden:sender.selected];
-    [mainV SWMediaSegHidden:sender.selected andUserInteraction:!sender.selected];
     
+}
+
+#pragma mark SWMediaInteractionDelegate
+/**/
+-(void)hiddenMaskAndFilterMenu{
+
+
+
 }
 /**
  *ViewController开始倒计时5秒钟,5秒后，在此方法里就可以实现Vedio的Select;
@@ -63,7 +71,7 @@
         NSLog(@"倒计时还剩%f",time);
         if (time == 5) {
             
-            [mainV VedioOrVchatUserInteraction:YES];
+//            [mainV VedioOrVchatUserInteraction:YES];/**/
             
             dispatch_source_cancel(animatime);
             NSLog(@"😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊😊  ");
@@ -76,9 +84,22 @@
     
 }
 -(void)finishedActionWithType:(SWMediaBtnType)type andState:(SWMediaBtnState)state isFirst:(BOOL)isFirst{
-    NSLog(@"SWMediaInteraction type  :    %d     state:   %d    >>>>>>>isFirst:%d",type,state,isFirst);
+    /**判定一下，如果type是gif/video/photo, state是pause/successful 推出预览层*/
+    if (type ==SWMediaBtnTypeCamera || type == SWMediaBtnTypeVideo || type == SWMediaBtnTypeGif) {
+        if (state == SWMediaBtnStatePause || state == SWMediaBtnSateSuccessful) {
+//             [mainV popPreView];/*gif/video/photo加载完成，显示*/
+        }
+    }
+    if (type == SWMediaBtnTypeVchat) {
+        NSLog(@">>>>>>>>>通话时，可以进行录制");
+        if (state == SWMediaBtnStateSelected) {
+            NSLog(@">>>>>>>>>>>通话时，已经进行录制");
+        }
+    }
+//    NSLog(@"SWMediaInteraction type  :    %d     state:   %d    >>>>>>>isFirst:%d",type,state,isFirst);
     
 }
+
 -(void)initPicture{
     NSLog(@"initPicture");
 }
@@ -100,6 +121,7 @@
 -(void)initGif{
     NSLog(@"initGif");
 }
+#pragma mark SWMediaInteractionSourceDelegate
 -(void)actionForFirstCustormWithType:(SWMediaBtnType)type andState:(SWMediaBtnState)state{
     NSLog(@"第一个小按钮   Type:    %d   state:   %d",type,state);
 }
